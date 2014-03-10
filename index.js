@@ -8,17 +8,17 @@ var query = require('query');
  * Element prototype.
  */
 
-var proto = Element.prototype;
+var proto = 'undefined' != typeof Element && Element.prototype;
 
 /**
  * Vendor function.
  */
 
-var vendor = proto.matches
+var vendor = proto && (proto.matches
   || proto.webkitMatchesSelector
   || proto.mozMatchesSelector
   || proto.msMatchesSelector
-  || proto.oMatchesSelector;
+  || proto.oMatchesSelector);
 
 /**
  * Expose `match()`.
